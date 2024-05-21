@@ -1,5 +1,12 @@
 # Arrocera Copra S.A
 
+### Instalación desde CMD o Powershell
+
+```bash
+git clone https://github.com/Santserrano/Arrocera-copra-sa.git
+
+```
+
 ### Configurar git 
 
 Clone el repositorio como se menciona en el inicio de la documentación.
