@@ -1,5 +1,5 @@
 from engine.functions import opcion_1, opcion_2, opcion_3, opcion_default
+from customtkinter import *
+from components.login import login
 
-if __name__ == "__main__":
-    print('Hola')
-    menu()
+#Se importa la clase login
