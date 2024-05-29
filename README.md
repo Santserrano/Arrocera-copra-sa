@@ -1,5 +1,5 @@
 # Arrocera Copra S.A
-
+![head](header.png)
 ### Instalación desde CMD o Powershell
 
 ```bash
