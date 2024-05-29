@@ -22,12 +22,12 @@ def dashboard():
     CTkLabel(master=sidebar_frame, text="", image=logo_img).pack(pady=(38, 0), anchor="center")
 
     analytics_img_data = Image.open("assets/analytics_icon.png")
-    analytics_img = CTkImage(dark_image=analytics_img_data, light_image=analytics_img_data)
+    analytics_img = CTkImage(analytics_img_data)
 
     CTkButton(master=sidebar_frame, image=analytics_img, text="Panel Principal", fg_color="transparent", font=("Poppins Bold", 14), hover_color="#006278", anchor="w").pack(anchor="center", ipady=5, pady=(60, 0))
 
     package_img_data = Image.open("assets/package_icon.png")
-    package_img = CTkImage(dark_image=package_img_data, light_image=package_img_data)
+    package_img = CTkImage(package_img_data)
 
     CTkButton(master=sidebar_frame, image=package_img, text="Nuevos", fg_color="#fff", font=("Poppins Bold", 14), text_color="#003b48", hover_color="#006278", anchor="w").pack(anchor="center", ipady=5, pady=(16, 0))
         #########################################################################################################
@@ -40,15 +40,15 @@ def dashboard():
 
         #########################################################################################################
     returns_img_data = Image.open("assets/returns_icon.png")
-    returns_img = CTkImage(dark_image=returns_img_data, light_image=returns_img_data)
+    returns_img = CTkImage(returns_img_data)
     CTkButton(master=sidebar_frame, image=returns_img, text="Actualizar", fg_color="transparent", font=("Poppins Bold", 14), hover_color="#006278", anchor="w").pack(anchor="center", ipady=5, pady=(16, 0))
 
     settings_img_data = Image.open("assets/settings_icon.png")
-    settings_img = CTkImage(dark_image=settings_img_data, light_image=settings_img_data)
+    settings_img = CTkImage(settings_img_data)
     CTkButton(master=sidebar_frame, image=settings_img, text="Configuración", fg_color="transparent", font=("Poppins Bold", 14), hover_color="#006278", anchor="w").pack(anchor="center", ipady=5, pady=(16, 0))
 
     person_img_data = Image.open("assets/person_icon.png")
-    person_img = CTkImage(dark_image=person_img_data, light_image=person_img_data)
+    person_img = CTkImage(person_img_data)
     CTkButton(master=sidebar_frame, image=person_img, text="Cuenta", fg_color="transparent", font=("Poppins Bold", 14), hover_color="#006278", anchor="w").pack(anchor="center", ipady=5, pady=(160, 0))
 
     main_view = CTkFrame(master=app, fg_color="#fff",  width=680, height=650, corner_radius=0)
@@ -70,7 +70,7 @@ def dashboard():
     orders_metric.pack(side="left")
 
     logitics_img_data = Image.open("assets/gerente_icon.png")
-    logistics_img = CTkImage(light_image=logitics_img_data, dark_image=logitics_img_data, size=(43, 43))
+    logistics_img = CTkImage(logitics_img_data, size=(43, 43))
 
     CTkLabel(master=orders_metric, image=logistics_img, text="").grid(row=0, column=0, rowspan=2, padx=(12,5), pady=10)
 
@@ -83,7 +83,7 @@ def dashboard():
     shipped_metric.pack(side="left",expand=True, anchor="center")
 
     shipping_img_data = Image.open("assets/factory_icon.png")
-    shipping_img = CTkImage(light_image=shipping_img_data, dark_image=shipping_img_data, size=(43, 43))
+    shipping_img = CTkImage(shipping_img_data, size=(43, 43))
 
     CTkLabel(master=shipped_metric, image=shipping_img, text="").grid(row=0, column=0, rowspan=2, padx=(12,5), pady=10)
 
@@ -95,7 +95,7 @@ def dashboard():
     delivered_metric.pack(side="right",)
 
     delivered_img_data = Image.open("assets/path_icon.png")
-    delivered_img = CTkImage(light_image=delivered_img_data, dark_image=delivered_img_data, size=(43, 43))
+    delivered_img = CTkImage(delivered_img_data, size=(43, 43))
 
     CTkLabel(master=delivered_metric, image=delivered_img, text="").grid(row=0, column=0, rowspan=2, padx=(12,5), pady=10)
 
