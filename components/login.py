@@ -3,6 +3,20 @@ from PIL import Image
 from dashboard import dashboard
 from CTkTable import CTkTable
 
+def abrir_ventana_silos():
+    app.withdraw()
+
+    silos = CTkToplevel(app)
+    silos.geometry("400x400")
+    silos.title("Silos")
+
+    CTkButton(master=silos, text="Silo 1").pack()
+    CTkButton(master=silos, text="Silo 2").pack()
+    CTkButton(master=silos, text="Silo 3").pack()
+
+    volver = CTkButton(master=silos, text="Volver", command=lambda: [silos.destroy(), app.deiconify()])
+    volver.pack()
+
 app = CTk()
 app.geometry("600x480")
 app.resizable(0,0)
