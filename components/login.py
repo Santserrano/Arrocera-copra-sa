@@ -28,20 +28,7 @@ side_img_data = Image.open("assets/side-img.png")
 user_icon_data = Image.open("assets/user.png")
 password_icon_data = Image.open("assets/password-icon.png")
 google_icon_data = Image.open("assets/google-icon.png")
-
 #
-logo_img_data = Image.open("assets/logo.png")
-analytics_img_data = Image.open("assets/analytics_icon.png")
-package_img_data = Image.open("assets/package_icon.png")
-list_img_data = Image.open("assets/list_icon.png")
-returns_img_data = Image.open("assets/returns_icon.png")
-settings_img_data = Image.open("assets/settings_icon.png")
-person_img_data = Image.open("assets/person_icon.png")
-logitics_img_data = Image.open("assets/gerente_icon.png")
-shipping_img_data = Image.open("assets/factory_icon.png")
-delivered_img_data = Image.open("assets/path_icon.png")
-#
-
 
 side_img = CTkImage(side_img_data, size=(300, 480))
 user_icon = CTkImage(user_icon_data, size=(17,17))
