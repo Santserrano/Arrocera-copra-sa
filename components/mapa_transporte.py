@@ -28,13 +28,21 @@ camion_img_icon = ImageTk.PhotoImage(Image.open("assets/icon-camion.png").resize
 
 frame = CTkFrame(master=border_frame, width=198, height=643, fg_color="#f5ecdd")
 frame.pack_propagate(0)
-frame.pack(expand=True, side="left", padx=3, pady=3)
+frame.pack(expand=True, side="left", padx=3, pady=1)
 
-CTkLabel(master=frame, text="", image=logo_img).pack(pady=50, anchor="center")
+CTkLabel(master=frame, text="", image=logo_img).pack(pady=30, anchor="center")
 
-CTkComboBox(master=frame, width=160, values=["Ruta 1", "En proceso", "Enviado", "Entregado", "Pendiente", "Cancelado"], button_color="#003b48", border_color="#003b48", border_width=4, button_hover_color="#006278", dropdown_hover_color="#006278" , dropdown_fg_color="#003b48", dropdown_text_color="#fff").pack(side="top", padx=(10, 0), pady=30)
-CTkComboBox(master=frame, width=160, values=["Ruta 2", "En proceso", "Enviado", "Entregado", "Pendiente", "Cancelado"], button_color="#003b48", border_color="#003b48", border_width=4, button_hover_color="#006278", dropdown_hover_color="#006278" , dropdown_fg_color="#003b48", dropdown_text_color="#fff").pack(side="top", padx=(10, 0), pady=30)
-CTkComboBox(master=frame, width=160, values=["Ruta 3", "En proceso", "Enviado", "Entregado", "Pendiente", "Cancelado"], button_color="#003b48", border_color="#003b48", border_width=4, button_hover_color="#006278", dropdown_hover_color="#006278" , dropdown_fg_color="#003b48", dropdown_text_color="#fff").pack(side="top", padx=(10, 0), pady=30)
+CTkComboBox(master=frame, width=160, values=["Ruta 1", "En proceso", "Enviado", "Entregado", "Pendiente", "Cancelado"], button_color="#003b48", border_color="#003b48", border_width=4, button_hover_color="#006278", dropdown_hover_color="#006278" , dropdown_fg_color="#003b48", dropdown_text_color="#fff").pack(side="top", padx=(10, 0), pady=10)
+CTkComboBox(master=frame, width=160, values=["Ruta 2", "En proceso", "Enviado", "Entregado", "Pendiente", "Cancelado"], button_color="#003b48", border_color="#003b48", border_width=4, button_hover_color="#006278", dropdown_hover_color="#006278" , dropdown_fg_color="#003b48", dropdown_text_color="#fff").pack(side="top", padx=(10, 0), pady=10)
+CTkComboBox(master=frame, width=160, values=["Ruta 3", "En proceso", "Enviado", "Entregado", "Pendiente", "Cancelado"], button_color="#003b48", border_color="#003b48", border_width=4, button_hover_color="#006278", dropdown_hover_color="#006278" , dropdown_fg_color="#003b48", dropdown_text_color="#fff").pack(side="top", padx=(10, 0), pady=10)
+CTkComboBox(master=frame, width=160, values=["Ruta 4", "En proceso", "Enviado", "Entregado", "Pendiente", "Cancelado"], button_color="#003b48", border_color="#003b48", border_width=4, button_hover_color="#006278", dropdown_hover_color="#006278" , dropdown_fg_color="#003b48", dropdown_text_color="#fff").pack(side="top", padx=(10, 0), pady=10)
+CTkComboBox(master=frame, width=160, values=["Ruta 5", "En proceso", "Enviado", "Entregado", "Pendiente", "Cancelado"], button_color="#003b48", border_color="#003b48", border_width=4, button_hover_color="#006278", dropdown_hover_color="#006278" , dropdown_fg_color="#003b48", dropdown_text_color="#fff").pack(side="top", padx=(10, 0), pady=10)
+CTkComboBox(master=frame, width=160, values=["Ruta 6", "En proceso", "Enviado", "Entregado", "Pendiente", "Cancelado"], button_color="#003b48", border_color="#003b48", border_width=4, button_hover_color="#006278", dropdown_hover_color="#006278" , dropdown_fg_color="#003b48", dropdown_text_color="#fff").pack(side="top", padx=(10, 0), pady=(10, 130))
+
+returns_img_data = Image.open("assets/returns_icon.png")
+returns_img = CTkImage(returns_img_data)
+CTkButton(master=frame, image=returns_img, text="Volver", fg_color="#003b48", font=("Poppins Bold", 14), hover_color="#006278", anchor="w").pack(anchor="center", ipady=3, pady=(20, 20))
+
 # Posición inicial y ajuste zoom
 map_widget.set_position(-30.95, -59.04, marker=False)
 map_widget.set_zoom(7.2)
@@ -117,6 +125,14 @@ path_1 = map_widget.set_path([                                      (-32.9434267
                                                                     (-29.18459153606841, -58.07522291706866),
                                                                     (-29.18369753843127, -58.06723583166076),
                                                                     ], color="green", width=4)
+
+path_2 = map_widget.set_path([                                      (-32.9434267, -60.6341945), 
+                                                                    (-32.94294533928551, -60.63412434689571),
+                                                                    ], color="red", width=4)
+
+path_3 = map_widget.set_path([                                      (-32.9434267, -60.6341945), 
+                                                                    (-32.94294533928551, -60.63412434689571),
+                                                                    ], color="red", width=4)
 
 
 #funciones que quizás sirvan

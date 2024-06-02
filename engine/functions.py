@@ -1,34 +1,42 @@
-def opcion_1():
-    print("Has seleccionado la opción 1")
+import math
 
-def opcion_2():
-    print("Has seleccionado la opción 2")
+class RecepcionArroz:
+    def __init__(self, peso, humedad, fecha_hora, proveedor, variedad):
+        self.peso = peso
+        self.humedad = humedad
+        self.fecha_hora = fecha_hora
+        self.proveedor = proveedor
+        self.variedad = variedad
 
-def opcion_3():
-    print("Has seleccionado la opción 3")
+class CargaDescarga:
+    def __init__(self, peso, numero_camion, conductor, fecha_hora):
+        self.peso = peso
+        self.numero_camion = numero_camion
+        self.conductor = conductor
+        self.fecha_hora = fecha_hora
 
-def opcion_default():
-    print("Opción no válida. Por favor, selecciona una opción válida.")
+class Almacenamiento:
+    def __init__(self, ubicacion, capacidad, nivel_actual, temperatura, humedad):
+        self.ubicacion = ubicacion
+        self.capacidad = capacidad
+        self.nivel_actual = nivel_actual
+        self.temperatura = temperatura
+        self.humedad = humedad
 
+class Secado:
+    def __init__(self, temp_aire, humedad_aire, duracion, velocidad_flujo):
+        self.temp_aire = temp_aire
+        self.humedad_aire = humedad_aire
+        self.duracion = duracion
+        self.velocidad_flujo = velocidad_flujo
 
-def menu():
-    print("Bienvenido al menú:")
-    print("1. Opción 1")
-    print("2. Opción 2")
-    print("3. Opción 3")
-    print("0. Salir")
+class Mantenimiento:
+    def __init__(self, fecha_hora, descripcion="", personal=""):
+        self.fecha_hora = fecha_hora
+        self.descripcion = descripcion
+        self.personal = personal
 
-    while True:
-        opcion = input("Por favor, selecciona una opción: ")
-
-        if opcion == "1":
-            opcion_1()
-        elif opcion == "2":
-            opcion_2()
-        elif opcion == "3":
-            opcion_3()
-        elif opcion == "0":
-            print("Saliendo del programa...")
-            break
-        else:
-            opcion_default()
+class NuevaOrden:
+    def __init__(self, cliente="", tipo_arroz=""):
+        self.cliente = cliente
+        self.tipo_arroz = tipo_arroz

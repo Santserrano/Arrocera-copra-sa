@@ -1,6 +1,15 @@
 from customtkinter import *
 from CTkTable import CTkTable
 from PIL import Image
+import sys
+import os
+
+#Configuración del PATH de engine para importaciones absolutas
+current_dir = os.path.dirname(os.path.abspath(__file__))
+project_dir = os.path.abspath(os.path.join(current_dir, '..'))
+sys.path.append(project_dir)
+
+#Funcionalidades (cálculos)
 from engine.functions import RecepcionArroz, CargaDescarga, Almacenamiento, Secado, Mantenimiento, NuevaOrden
 
 def dashboard():
@@ -118,8 +127,6 @@ def dashboard():
 
     search_container = CTkFrame(master=main_view, height=50, fg_color="#F0F0F0")
     search_container.pack(fill="x", pady=(45, 0), padx=27)
-
-
 
     ###################################### ------------> SE DEFINE EL BLOQUE DE ORDENES Y LISTA DE CLIENTES <------------ ######################################
     CTkEntry(master=search_container, width=305, placeholder_text="Buscar orden", border_color="#003b48", border_width=2).pack(side="left", padx=(13, 0), pady=15)
