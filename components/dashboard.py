@@ -1,8 +1,10 @@
 from customtkinter import *
 from CTkTable import CTkTable
 from PIL import Image
+from engine.functions import RecepcionArroz, CargaDescarga, Almacenamiento, Secado, Mantenimiento, NuevaOrden
 
 def dashboard():
+    ##################################################################################################
     app = CTk()
     app.geometry("856x645")
     app.resizable(0,0)
@@ -12,14 +14,14 @@ def dashboard():
 
     set_appearance_mode("light")
 
-    sidebar_frame = CTkFrame(master=app, fg_color="#003b48",  width=176, height=650, corner_radius=0)
+    sidebar_frame = CTkFrame(master=app, fg_color="#003b48",  width=176, height=650, corner_radius=0) #Bloque izquierdo
     sidebar_frame.pack_propagate(0)
-    sidebar_frame.pack(fill="y", anchor="w", side="left")
+    sidebar_frame.pack(fill="y", anchor="w", side="left") #Bloque en el lado left
 
-    logo_img_data = Image.open("assets/logo.png")
-    logo_img = CTkImage(logo_img_data, size=(90, 100))
+    logo_img_data = Image.open("assets/logo.png") #Carga del logo
+    logo_img = CTkImage(logo_img_data, size=(90, 100)) #Redimensionamiento del logo
 
-    CTkLabel(master=sidebar_frame, text="", image=logo_img).pack(pady=(38, 0), anchor="center")
+    CTkLabel(master=sidebar_frame, text="", image=logo_img).pack(pady=(38, 0), anchor="center") #Inserción del logo como etiqueta
 
     analytics_img_data = Image.open("assets/analytics_icon.png")
     analytics_img = CTkImage(analytics_img_data)
@@ -29,31 +31,43 @@ def dashboard():
     package_img_data = Image.open("assets/package_icon.png")
     package_img = CTkImage(package_img_data)
 
+    ###################################### SE DEFINEN LOS BOTONES DEL LADO IZQUIERDO Y SE CARGAN SUS RESPECTIVOS ICONOS ######################################
+    
     CTkButton(master=sidebar_frame, image=package_img, text="Nuevos", fg_color="#fff", font=("Poppins Bold", 14), text_color="#003b48", hover_color="#006278", anchor="w").pack(anchor="center", ipady=5, pady=(16, 0))
-        #########################################################################################################
-
-
+    
+    #########################################################################################################
+    
     list_img_data = Image.open("assets/list_icon.png")
     list_img = CTkImage(list_img_data)
     CTkButton(master=sidebar_frame, image=list_img, text="Ordenes", fg_color="transparent", font=("Poppins Bold", 14), hover_color="#006278", anchor="w").pack(anchor="center", ipady=5, pady=(16, 0))
-
-
-        #########################################################################################################
+    
+    #########################################################################################################
+    
     returns_img_data = Image.open("assets/returns_icon.png")
     returns_img = CTkImage(returns_img_data)
     CTkButton(master=sidebar_frame, image=returns_img, text="Actualizar", fg_color="transparent", font=("Poppins Bold", 14), hover_color="#006278", anchor="w").pack(anchor="center", ipady=5, pady=(16, 0))
-
+    
+    #########################################################################################################
+    
     settings_img_data = Image.open("assets/settings_icon.png")
     settings_img = CTkImage(settings_img_data)
     CTkButton(master=sidebar_frame, image=settings_img, text="Configuración", fg_color="transparent", font=("Poppins Bold", 14), hover_color="#006278", anchor="w").pack(anchor="center", ipady=5, pady=(16, 0))
 
+    #########################################################################################################
+    
     person_img_data = Image.open("assets/person_icon.png")
     person_img = CTkImage(person_img_data)
-    CTkButton(master=sidebar_frame, image=person_img, text="Cuenta", fg_color="transparent", font=("Poppins Bold", 14), hover_color="#006278", anchor="w").pack(anchor="center", ipady=5, pady=(160, 0))
+    CTkButton(master=sidebar_frame, image=person_img, text="Cuenta", fg_color="transparent", font=("Poppins Bold", 14), hover_color="#006278", anchor="w").pack(anchor="center", ipady=8, pady=(120, 0))
 
+    #########################################################################################################
+
+
+
+
+    ###################################### ------------>SE DEFINE EL BLOQUE IZQUIERDO <------------ ######################################
     main_view = CTkFrame(master=app, fg_color="#fff",  width=680, height=650, corner_radius=0)
     main_view.pack_propagate(0)
-    main_view.pack(side="left")
+    main_view.pack(side="right")
 
     title_frame = CTkFrame(master=main_view, fg_color="transparent")
     title_frame.pack(anchor="n", fill="x",  padx=27, pady=(29, 0))
@@ -105,6 +119,9 @@ def dashboard():
     search_container = CTkFrame(master=main_view, height=50, fg_color="#F0F0F0")
     search_container.pack(fill="x", pady=(45, 0), padx=27)
 
+
+
+    ###################################### ------------> SE DEFINE EL BLOQUE DE ORDENES Y LISTA DE CLIENTES <------------ ######################################
     CTkEntry(master=search_container, width=305, placeholder_text="Buscar orden", border_color="#003b48", border_width=2).pack(side="left", padx=(13, 0), pady=15)
 
     CTkComboBox(master=search_container, width=125, values=["Fecha", "Más reciente", "Últimas entregas"], button_color="#003b48", border_color="#003b48", border_width=2, button_hover_color="#006278",dropdown_hover_color="#006278" , dropdown_fg_color="#003b48", dropdown_text_color="#fff").pack(side="left", padx=(13, 0), pady=15)
