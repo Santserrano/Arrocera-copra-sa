@@ -9,9 +9,15 @@ app = tkinter.Tk()
 app.geometry(f"{856}x{645}")
 app.title("Estado Silos - Copra S.A")
 
-#856x645
+screen_width = app.winfo_screenwidth()
+screen_height = app.winfo_screenheight()
+window_width = 856
+window_height = 645
+x_coordinate = (screen_width - window_width) // 2
+y_coordinate = (screen_height - window_height) // 2 - 50
+# Centro del escritorio
+app.geometry(f"{window_width}x{window_height}+{x_coordinate}+{y_coordinate}")
 
-# Crear widget mapa
 
 logo_img_data = Image.open("assets/logo.png")
 ###################################################################################################

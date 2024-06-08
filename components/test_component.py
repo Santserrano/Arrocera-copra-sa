@@ -19,10 +19,6 @@ master_app.pack(expand=True)
 frame_superior = CTkFrame(master=master_app, fg_color="transparent")
 frame_superior.pack(fill="both", expand=True, padx=20, pady=(20, 5))
 
-
-
-
-
 # --------------------------------------------- TARJETA SILO 1 ---------------------------------------------
 tarjeta_1 = CTkFrame(master=frame_superior, width=343, height=190, fg_color="#fff", corner_radius=35)
 tarjeta_1.grid_propagate(0)

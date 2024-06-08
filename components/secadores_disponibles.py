@@ -19,6 +19,16 @@ def dashboard():
     app.iconbitmap('assets/logo.png') #Debe ser formato .ico :/
     app.title("Secadores Disponibles - Copra S.A")
 
+    screen_width = app.winfo_screenwidth()
+    screen_height = app.winfo_screenheight()
+    window_width = 856
+    window_height = 645
+    x_coordinate = (screen_width - window_width) // 2
+    y_coordinate = (screen_height - window_height) // 2 - 50
+    # Centro del escritorio
+    app.geometry(f"{window_width}x{window_height}+{x_coordinate}+{y_coordinate}")
+
+
     logo_img_data = Image.open("assets/logo.png") #Carga del logo
     logo_img = CTkImage(logo_img_data, size=(50, 55)) #Redimensionamiento del logo
 

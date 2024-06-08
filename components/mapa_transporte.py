@@ -8,6 +8,15 @@ root_tk = tkinter.Tk()
 root_tk.geometry(f"{856}x{645}")
 root_tk.title("Transporte - Copra S.A")
 
+screen_width = root_tk.winfo_screenwidth()
+screen_height = root_tk.winfo_screenheight()
+window_width = 856
+window_height = 645
+x_coordinate = (screen_width - window_width) // 2
+y_coordinate = (screen_height - window_height) // 2 - 50
+# Centro del escritorio
+root_tk.geometry(f"{window_width}x{window_height}+{x_coordinate}+{y_coordinate}")
+
 #856x645
 
 # Crear widget mapa
@@ -54,7 +63,9 @@ map_widget.set_zoom(7.2)
 marker_2 = map_widget.set_marker(-32.9434267, -60.6341945, text="Aduana Rosario")
 marker_3 = map_widget.set_marker(-29.18, -58.06, text="Copra S.A")#image=fabrica_image
 
-marker_4 = map_widget.set_marker(-31.1617608, -59.1388770, text="6h 46min", icon=camion_img_icon) ###
+marker_4 = map_widget.set_marker(-31.0247433, -58.9335874, text="6h 46min", icon=camion_img_icon) ###
+marker_4 = map_widget.set_marker(-31.6540296, -60.6137915, text="6h 46min", icon=camion_img_icon) ###
+marker_4 = map_widget.set_marker(-29.6173030, -58.1239393, text="6h 46min", icon=camion_img_icon) ###
 
 # trazo         Aduana: -32.9437122 -60.6348338     Copra S.A: -29.1834803 -58.0666058
 
