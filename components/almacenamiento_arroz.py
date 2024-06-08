@@ -76,7 +76,7 @@ icon_photo = CTkImage(icon_img)
 icon_label = CTkLabel(master=tarjeta_1, image=icon_photo, text="")
 icon_label.grid(row=0, column=1, padx=(0, 5), pady=(10, 5), sticky="w")
 # Estado
-estado_label = CTkLabel(master=tarjeta_1, text="Óptimo", font=("Poppins Medium", 14), fg_color="#B6F6B5", corner_radius=30, width=74, height=25, text_color="#74bd73")
+estado_label = CTkLabel(master=tarjeta_1, text="Óptimo", font=("Poppins Medium", 14), fg_color="#B6F6B5", corner_radius=25, width=74, height=25, text_color="#74bd73")
 estado_label.grid(row=0, column=2, padx=(110, 5), pady=(10, 5), sticky="e")
 #------------------>
 # Información del silo 1
@@ -116,7 +116,7 @@ icon_photo = CTkImage(icon_img)
 icon_label = CTkLabel(master=tarjeta_1, image=icon_photo, text="")
 icon_label.grid(row=0, column=1, padx=(0, 5), pady=(10, 5), sticky="w")
 # Estado
-estado_label = CTkLabel(master=tarjeta_1, text="Óptimo", font=("Poppins Medium", 14), fg_color="#B6F6B5", corner_radius=30, width=74, height=25, text_color="#74bd73")
+estado_label = CTkLabel(master=tarjeta_1, text="Óptimo", font=("Poppins Medium", 14), fg_color="#B6F6B5", corner_radius=25, width=74, height=25, text_color="#74bd73")
 estado_label.grid(row=0, column=2, padx=(110, 5), pady=(10, 5), sticky="e")
 #------------------>
 # Información del silo 1
@@ -169,8 +169,8 @@ icon_photo = CTkImage(icon_img)
 icon_label = CTkLabel(master=tarjeta_1, image=icon_photo, text="")
 icon_label.grid(row=0, column=1, padx=(0, 5), pady=(10, 5), sticky="w")
 # Estado
-estado_label = CTkLabel(master=tarjeta_1, text="Óptimo", font=("Poppins Medium", 14), fg_color="#B6F6B5", corner_radius=30, width=74, height=25, text_color="#74bd73")
-estado_label.grid(row=0, column=2, padx=(110, 5), pady=(10, 5), sticky="e")
+estado_label = CTkLabel(master=tarjeta_1, text="Alerta", font=("Poppins Medium", 14), fg_color="#fffb85", corner_radius=25, width=74, height=25, text_color="#c2bd30")
+estado_label.grid(row=0, column=2, padx=(110, 5), pady=(10, 7), sticky="e")
 #------------------>
 # Información del silo 1
 # Toneladas
@@ -208,8 +208,8 @@ icon_photo = CTkImage(icon_img)
 icon_label = CTkLabel(master=tarjeta_1, image=icon_photo, text="")
 icon_label.grid(row=0, column=1, padx=(0, 5), pady=(10, 5), sticky="w")
 # Estado
-estado_label = CTkLabel(master=tarjeta_1, text="Óptimo", font=("Poppins Medium", 14), fg_color="#B6F6B5", corner_radius=30, width=74, height=25, text_color="#74bd73")
-estado_label.grid(row=0, column=2, padx=(110, 5), pady=(10, 5), sticky="e")
+estado_label = CTkLabel(master=tarjeta_1, text="Lleno", font=("Poppins Medium", 14), fg_color="#ff6e6e", corner_radius=25, width=74, height=25, text_color="#bd2424")
+estado_label.grid(row=0, column=2, padx=(110, 5), pady=(10, 7), sticky="e")
 #------------------>
 # Información del silo 1
 # Toneladas
