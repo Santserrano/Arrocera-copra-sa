@@ -63,9 +63,9 @@ map_widget.set_zoom(7.2)
 marker_2 = map_widget.set_marker(-32.9434267, -60.6341945, text="Aduana Rosario")
 marker_3 = map_widget.set_marker(-29.18, -58.06, text="Copra S.A")#image=fabrica_image
 
-marker_4 = map_widget.set_marker(-31.0247433, -58.9335874, text="6h 46min", icon=camion_img_icon) ###
+marker_4 = map_widget.set_marker(-31.0247433, -58.9335874, text="5h 58min", icon=camion_img_icon) ###
 marker_4 = map_widget.set_marker(-31.6540296, -60.6137915, text="6h 46min", icon=camion_img_icon) ###
-marker_4 = map_widget.set_marker(-29.6173030, -58.1239393, text="6h 46min", icon=camion_img_icon) ###
+marker_4 = map_widget.set_marker(-29.6173030, -58.1239393, text="2h 24min", icon=camion_img_icon) ###
 
 # trazo         Aduana: -32.9437122 -60.6348338     Copra S.A: -29.1834803 -58.0666058
 

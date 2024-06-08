@@ -3,6 +3,24 @@ from PIL import Image
 from dashboard import dashboard
 from CTkTable import CTkTable
 import tkinter as tk
+import sqlite3
+
+"""
+QUERY USUARIOS
+"""
+conn = sqlite3.connect('usuarios.db')
+
+c = conn.cursor()
+usuarios_login = []
+
+c.execute("SELECT * FROM usuarios")
+filas = c.fetchall() #recupero filas
+
+for fila in filas:
+    usuarios_login.append(fila)
+
+#def verificar_usuario():
+print(usuarios_login)
 
 def iniciar_sesion(root):
     root.destroy()  # Cierra la ventana de inicio de sesión

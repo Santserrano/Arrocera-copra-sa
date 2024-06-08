@@ -62,10 +62,36 @@ def dashboard():
     ]
 
     table_frame = CTkScrollableFrame(master=main_view, fg_color="transparent")
-    table_frame.pack(expand=True, fill="both", padx=27, pady=21)
+    table_frame.pack(expand=True, fill="both", padx=27, pady=3)
     table = CTkTable(master=table_frame, values=table_data, colors=["#007791", "#0299ba"], header_color="#003b48", hover_color="#006278")
     table.edit_row(0, text_color="#fff", hover_color="#006278", font=("Poppins Bold", 12))
     table.pack(expand=True)
+
+    frame_inferior = CTkFrame(master=main_view, fg_color="#0299ba", width=856, height=400)
+    frame_inferior.pack(expand=True, padx=10, pady=(0, 120), side="top")
+
+    tarjeta_1 = CTkFrame(master=frame_inferior, width=240, height=150, fg_color="#fff", corner_radius=35, border_color="#003b48", border_width=3)
+    tarjeta_1.grid_propagate(0)
+    tarjeta_1.pack(expand=True, anchor="center", padx=(0, 10))
+    # Contenido de la tarjeta
+    # Título
+    silo_label = CTkLabel(master=tarjeta_1, text="Silo 1", font=("Poppins Medium", 18), text_color="#171717")
+    silo_label.grid(row=0, column=0, padx=(20, 0), pady=(15, 5), sticky="w")
+    # Icono
+    icon_img = Image.open("assets/icon-arroz.png").resize((20, 20))
+    icon_photo = CTkImage(icon_img)
+    icon_label = CTkLabel(master=tarjeta_1, image=icon_photo, text="")
+    icon_label.grid(row=0, column=1, padx=(0, 30), pady=(10, 5), sticky="w")
+    #------------------>
+    # Información del silo 1
+    # Toneladas
+    toneladas_label = CTkLabel(master=tarjeta_1, text="Capacidad: 50 toneladas", font=("Poppins Light", 13), text_color="#171717")
+    toneladas_label.grid(row=1, column=0, padx=(20, 0), pady=(0, 0), sticky="w")
+    toneladas_valor = CTkLabel(master=tarjeta_1, text="Próxima limpieza: 5 días", font=("Poppins Bold", 14), text_color="#ff3b3b")
+    toneladas_valor.grid(row=2, column=0, padx=(20, 0), pady=(0, 0), sticky="w")
+    
+    estado_label = CTkLabel(master=tarjeta_1, text="Limpiar", font=("Poppins Medium", 14), fg_color="#003b48", corner_radius=25, width=74, height=25, text_color="#fff")
+    estado_label.grid(row=3, column=0, padx=(20, 0), pady=(5, 0), sticky="w")
 
     app.mainloop()
 

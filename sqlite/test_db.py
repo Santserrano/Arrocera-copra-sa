@@ -6,7 +6,7 @@ import sqlite3
 def insertar_usuario(nombre, password):
     conn = sqlite3.connect('usuarios.db')
     c = conn.cursor()
-    c.execute("INSERT INTO usuarios (nombre, edad) VALUES (?, ?)", (nombre, edad))
+    c.execute("INSERT INTO usuarios (nombre, edad) VALUES (?, ?)", (nombre, password))
     conn.commit()
     conn.close()
     messagebox.showinfo("Éxito", "Usuario agregado exitosamente")
@@ -36,6 +36,7 @@ conn.close()
 # Crear la ventana principal
 root = tk.Tk()
 root.title("Gestión de Usuarios")
+root.geometry("300x400")
 
 # Crear widgets
 tk.Label(root, text="Usuario").grid(row=0, column=0)
@@ -51,7 +52,7 @@ tk.Button(root, text="Agregar Usuario", command=lambda: insertar_usuario(entrada
 
 tk.Button(root, text="Mostrar Usuarios", command=mostrar_usuarios).grid(row=3, column=0, columnspan=2)
 
-lista_usuarios = tk.Listbox(root)
+lista_usuarios = tk.Listbox(root, width=40)
 lista_usuarios.grid(row=4, column=0, columnspan=2)
 
 # Ejecutar la aplicación
