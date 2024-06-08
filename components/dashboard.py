@@ -3,14 +3,12 @@ from CTkTable import CTkTable
 from PIL import Image
 import sys
 import os
+#from engine.functions import RecepcionArroz, CargaDescarga, Almacenamiento, Secado, Mantenimiento, NuevaOrden
 
 #Configuración del PATH de engine para importaciones absolutas
 current_dir = os.path.dirname(os.path.abspath(__file__))
 project_dir = os.path.abspath(os.path.join(current_dir, '..'))
 sys.path.append(project_dir)
-
-#Funcionalidades (cálculos)
-from engine.functions import RecepcionArroz, CargaDescarga, Almacenamiento, Secado, Mantenimiento, NuevaOrden
 
 def dashboard():
     ##################################################################################################
