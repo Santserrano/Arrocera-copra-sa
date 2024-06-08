@@ -3,6 +3,7 @@ from CTkTable import CTkTable
 from PIL import Image
 import sys
 import os
+import tkinter as tk
 #from engine.functions import RecepcionArroz, CargaDescarga, Almacenamiento, Secado, Mantenimiento, NuevaOrden
 
 #Configuración del PATH de engine para importaciones absolutas
@@ -15,8 +16,17 @@ def dashboard():
     app = CTk()
     app.geometry("856x645")
     app.resizable(0,0)
+    # Centrar ventana
+    screen_width = app.winfo_screenwidth()
+    screen_height = app.winfo_screenheight()
+    window_width = 856
+    window_height = 645
+    x_coordinate = (screen_width - window_width) // 2
+    y_coordinate = (screen_height - window_height) // 2 - 50
+    # Centro del escritorio
+    app.geometry(f"{window_width}x{window_height}+{x_coordinate}+{y_coordinate}")
 
-    app.iconbitmap('assets/logo.png') #Debe ser formato .ico :/
+    app.iconbitmap('assets/logo.ico') #Debe ser formato .ico :/
     app.title("Agrorice - Copra S.A")
 
     set_appearance_mode("light")
