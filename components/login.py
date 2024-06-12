@@ -5,9 +5,11 @@ from CTkTable import CTkTable
 import tkinter as tk
 import sqlite3
 
+#--------------------------------------------------------------------------------------------#
+
 """
 QUERY USUARIOS
-"""
+
 conn = sqlite3.connect('usuarios.db')
 
 c = conn.cursor()
@@ -19,12 +21,37 @@ filas = c.fetchall() #recupero filas
 for fila in filas:
     usuarios_login.append(fila)
 
-#def verificar_usuario():
-print(usuarios_login)
+print(usuarios_login) #test
 
-def iniciar_sesion(root):
-    root.destroy()  # Cierra la ventana de inicio de sesión
-    dashboard()
+"""
+
+#--------------------------------------------------------------------------------------------#
+
+def iniciar_sesion(usuario, password, app):
+    conn = sqlite3.connect('usuarios.db')
+    c = conn.cursor()
+    c.execute("SELECT rol FROM usuarios WHERE usuario=? AND password=?", (usuario, password))
+    result = c.fetchone()
+    
+    if result:
+        rol = result[0]
+        app.destroy()  # Cierra la ventana de inicio de sesión
+        ventanas(rol)
+    else:
+        print("Login Failed")
+    
+    conn.close()
+
+def ventanas(rol):
+    if rol == 'Gerente_general':
+        from dashboard import dashboard
+        dashboard()
+    elif rol == 'Gerente_transporte':
+        from ID_log_2 import ID_log_2
+        ID_log_2()
+    elif rol == 'Gerente_producción':
+        from ID_log import ID_log
+        ID_log()
 
 app = CTk()
 app.geometry("600x480")
@@ -62,12 +89,14 @@ CTkLabel(master=frame, text="Bienvenido", text_color="#003b48", anchor="w", just
 CTkLabel(master=frame, text="Inicia sesión en tu cuenta", text_color="#7E7E7E", anchor="w", justify="left", font=("Poppins Light", 12)).pack(anchor="w", padx=(25, 0))
 
 CTkLabel(master=frame, text="  Usuario:", text_color="#003b48", anchor="w", justify="left", font=("Poppins Bold", 12), image=user_icon, compound="left").pack(anchor="w", pady=(18, 0), padx=(25, 0))
-CTkEntry(master=frame, width=225, fg_color="#EEEEEE", border_color="#003b48", border_width=2, text_color="#000000").pack(anchor="w", padx=(25, 0))
+username_entry = CTkEntry(master=frame, width=225, fg_color="#EEEEEE", border_color="#003b48", border_width=2, text_color="#000000")
+username_entry.pack(anchor="w", padx=(25, 0))
 
 CTkLabel(master=frame, text="  Contraseña:", text_color="#003b48", anchor="w", justify="left", font=("Poppins Bold", 12), image=password_icon, compound="left").pack(anchor="w", pady=(21, 0), padx=(25, 0))
-CTkEntry(master=frame, width=225, fg_color="#EEEEEE", border_color="#003b48", border_width=2, text_color="#000000", show="*").pack(anchor="w", padx=(25, 0))
+password_entry = CTkEntry(master=frame, width=225, fg_color="#EEEEEE", border_color="#003b48", border_width=2, text_color="#000000", show="*")
+password_entry.pack(anchor="w", padx=(25, 0))
 
-CTkButton(master=frame, text="Iniciar Sesión", fg_color="#003b48", hover_color="#00667d", font=("Poppins Bold", 12), text_color="#ffffff", width=225, command=lambda: iniciar_sesion(app)).pack(anchor="w", pady=(40, 0), padx=(25, 0))
+CTkButton(master=frame, text="Iniciar Sesión", command=lambda: iniciar_sesion(username_entry.get(), password_entry.get(), app), fg_color="#003b48", hover_color="#00667d", font=("Poppins Bold", 12), text_color="#fff", width=225).pack(anchor="w", pady=(40, 0), padx=(25, 0))
 CTkButton(master=frame, text="Continuar con Google", fg_color="#EEEEEE", hover_color="#EEEEEE", font=("Poppins Bold", 9), text_color="#003b48", width=225, image=google_icon).pack(anchor="w", pady=(20, 0), padx=(25, 0))
 
 app.mainloop()

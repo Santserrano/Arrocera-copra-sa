@@ -29,7 +29,7 @@ def mostrar_usuarios():
 conn = sqlite3.connect('usuarios.db')
 c = conn.cursor()
 c.execute('''CREATE TABLE IF NOT EXISTS usuarios
-                (id INTEGER PRIMARY KEY, nombre TEXT, edad INTEGER)''')
+                (id INTEGER PRIMARY KEY, nombre TEXT, password INTEGER)''')
 conn.commit()
 conn.close()
 

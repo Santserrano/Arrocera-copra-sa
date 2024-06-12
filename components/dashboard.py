@@ -4,7 +4,7 @@ from PIL import Image
 import sys
 import os
 import tkinter as tk
-#from engine.functions import RecepcionArroz, CargaDescarga, Almacenamiento, Secado, Mantenimiento, NuevaOrden
+import sqlite3
 
 #Configuración del PATH de engine para importaciones absolutas
 current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -26,14 +26,36 @@ def dashboard():
     # Centro del escritorio
     app.geometry(f"{window_width}x{window_height}+{x_coordinate}+{y_coordinate}")
 
-    app.iconbitmap('assets/logo.ico') #Debe ser formato .ico :/
-    app.title("Agrorice - Copra S.A")
+    #------------------------------------------------------------------------------------------------>  
+    """
+    FUNCIONES BOTONES
+    """
+    def nueva_orden(root): # Secadores disponibles - Secado de arroz - Lista tabla
+        from nueva_orden import nueva_orden
+        root.destroy()
+        nueva_orden()
 
-    set_appearance_mode("light")
+    def ventana_ordenes(root): # Secadores disponibles - Secado de arroz - Lista tabla
+        from listado_ordenes import listado_ordenes
+        root.destroy()
+        listado_ordenes()
+    
+    def gerente_config(root): # Secadores disponibles - Secado de arroz - Lista tabla
+        from config_acc import config_acc
+        root.destroy()
+        config_acc()
+    
+    def generar_factura(): # Secadores disponibles - Secado de arroz - Lista tabla
+        from test_facturacion import generar_factura
+        generar_factura()
+    #------------------------------------------------------------------------------------------------>
+
+    app.iconbitmap('assets/logo.ico')
+    app.title("Agrorice - Copra S.A")
 
     sidebar_frame = CTkFrame(master=app, fg_color="#003b48",  width=176, height=650, corner_radius=0) #Bloque izquierdo
     sidebar_frame.pack_propagate(0)
-    sidebar_frame.pack(fill="y", anchor="w", side="left") #Bloque en el lado left
+    sidebar_frame.pack(fill="y", anchor="w", side="left") #Bloque en el lado izquierdo
 
     logo_img_data = Image.open("assets/logo.png") #Carga del logo
     logo_img = CTkImage(logo_img_data, size=(90, 100)) #Redimensionamiento del logo
@@ -43,38 +65,32 @@ def dashboard():
     analytics_img_data = Image.open("assets/analytics_icon.png")
     analytics_img = CTkImage(analytics_img_data)
 
-    CTkButton(master=sidebar_frame, image=analytics_img, text="Panel Principal", fg_color="transparent", font=("Poppins Bold", 14), hover_color="#006278", anchor="w").pack(anchor="center", ipady=5, pady=(60, 0))
+    CTkButton(master=sidebar_frame, image=analytics_img, text="Panel Principal", fg_color="#fff", text_color="#003b48", font=("Poppins Bold", 14), hover_color="#006278", anchor="w").pack(anchor="center", ipady=5, pady=(60, 0))
 
     package_img_data = Image.open("assets/package_icon.png")
     package_img = CTkImage(package_img_data)
 
     ###################################### SE DEFINEN LOS BOTONES DEL LADO IZQUIERDO Y SE CARGAN SUS RESPECTIVOS ICONOS ######################################
     
-    CTkButton(master=sidebar_frame, image=package_img, text="Nuevos", fg_color="#fff", font=("Poppins Bold", 14), text_color="#003b48", hover_color="#006278", anchor="w").pack(anchor="center", ipady=5, pady=(16, 0))
+    CTkButton(master=sidebar_frame, image=package_img, text="Ordenar", command=lambda: nueva_orden(app), fg_color="transparent", font=("Poppins Bold", 14), text_color="#fff", hover_color="#006278", anchor="w").pack(anchor="center", ipady=5, pady=(16, 0))
     
     #########################################################################################################
     
     list_img_data = Image.open("assets/list_icon.png")
     list_img = CTkImage(list_img_data)
-    CTkButton(master=sidebar_frame, image=list_img, text="Ordenes", fg_color="transparent", font=("Poppins Bold", 14), hover_color="#006278", anchor="w").pack(anchor="center", ipady=5, pady=(16, 0))
-    
-    #########################################################################################################
-    
-    returns_img_data = Image.open("assets/returns_icon.png")
-    returns_img = CTkImage(returns_img_data)
-    CTkButton(master=sidebar_frame, image=returns_img, text="Actualizar", fg_color="transparent", font=("Poppins Bold", 14), hover_color="#006278", anchor="w").pack(anchor="center", ipady=5, pady=(16, 0))
-    
+    CTkButton(master=sidebar_frame, image=list_img, command=lambda: ventana_ordenes(app), text="Ordenes", fg_color="transparent", font=("Poppins Bold", 14), hover_color="#006278", anchor="w").pack(anchor="center", ipady=5, pady=(16, 0))
+
     #########################################################################################################
     
     settings_img_data = Image.open("assets/settings_icon.png")
     settings_img = CTkImage(settings_img_data)
-    CTkButton(master=sidebar_frame, image=settings_img, text="Configuración", fg_color="transparent", font=("Poppins Bold", 14), hover_color="#006278", anchor="w").pack(anchor="center", ipady=5, pady=(16, 0))
+    CTkButton(master=sidebar_frame, image=settings_img, text="Reporte PDF", command=lambda: generar_factura(), fg_color="transparent", font=("Poppins Bold", 14), hover_color="#006278", anchor="w").pack(anchor="center", ipady=5, pady=(16, 0))
 
     #########################################################################################################
     
     person_img_data = Image.open("assets/person_icon.png")
     person_img = CTkImage(person_img_data)
-    CTkButton(master=sidebar_frame, image=person_img, text="Cuenta", fg_color="transparent", font=("Poppins Bold", 14), hover_color="#006278", anchor="w").pack(anchor="center", ipady=8, pady=(120, 0))
+    CTkButton(master=sidebar_frame, image=person_img, command=lambda: gerente_config(app), text="Cuenta", fg_color="transparent", font=("Poppins Bold", 14), hover_color="#006278", anchor="w").pack(anchor="center", ipady=8, pady=(120, 0))
 
     #########################################################################################################
 
@@ -91,7 +107,7 @@ def dashboard():
 
     CTkLabel(master=title_frame, text="Menú principal", font=("Poppins Bold", 25), text_color="#003b48").pack(anchor="nw", side="left")
 
-    CTkButton(master=title_frame, text="+ Nueva Orden",  font=("Poppins Bold", 15), text_color="#fff", fg_color="#003b48", hover_color="#006278").pack(anchor="ne", side="right")
+    CTkButton(master=title_frame, command=lambda: nueva_orden(app), text="+ Nueva Orden",  font=("Poppins Bold", 15), text_color="#fff", fg_color="#003b48", hover_color="#006278").pack(anchor="ne", side="right")
 
     metrics_frame = CTkFrame(master=main_view, fg_color="transparent")
     metrics_frame.pack(anchor="n", fill="x",  padx=27, pady=(36, 0))
@@ -146,14 +162,32 @@ def dashboard():
         ["N° Orden", "Item", "Cliente", "Dirección", "Estado", "Cantidad"],
         ['3833', 'Arroz blanco', 'Juan Perez', 'Av. Rivadavia 123', 'Enviado', '8'],
         ['6432', 'Arroz integral', 'María Gomez', 'Calle Corrientes 456', 'Entregado', '10'],
-        ['2180', 'Arroz blanco', 'Pedro Rodriguez', 'Av. Belgrano', 'Pendiente', '3']
+        ['2180', 'Arroz blanco', 'Pedro Rodriguez', 'Av. Belgrano', 'Pendiente', '3'],
+        ['5412', 'Arroz basmati', 'Ana Fernandez', 'Calle San Martin 789', 'Enviado', '5'],
+        ['6587', 'Arroz jazmín', 'Luis Martinez', 'Av. Santa Fe 321', 'Pendiente', '2'],
+        ['7432', 'Arroz integral', 'Sofia Lopez', 'Calle Mitre 654', 'Entregado', '7'],
+        ['8743', 'Arroz blanco', 'Carlos Gomez', 'Av. Callao 987', 'Enviado', '6'],
+        ['9123', 'Arroz basmati', 'Elena Garcia', 'Calle Lavalle 123', 'Pendiente', '4']
     ]
 
     table_frame = CTkScrollableFrame(master=main_view, fg_color="transparent")
     table_frame.pack(expand=True, fill="both", padx=27, pady=21)
-    table = CTkTable(master=table_frame, values=table_data, colors=["#E6E6E6", "#EEEEEE"], header_color="#003b48", hover_color="#d5eae8")
+    table = CTkTable(master=table_frame, values=table_data, colors=["#E6E6E6", "#EEEEEE"], text_color="#003b48", header_color="#003b48", hover_color="#d5eae8")
     table.edit_row(0, text_color="#fff", hover_color="#006278")
     table.pack(expand=True)
+
+    conn = sqlite3.connect('ordenes.db')
+    c = conn.cursor()
+
+    ################################## Query a la db
+    c.execute("SELECT * FROM ordenes")
+    ordenes = c.fetchall()
+    conn.close()
+    #table.clear()
+
+    for orden in ordenes:
+        table.add_row(orden)
+    #################################
 
     app.mainloop()
 
