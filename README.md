@@ -42,7 +42,6 @@ Dentro de la carpeta `components` se encuentran los archivos correspondientes a 
 - `nueva_orden.py` Formulario nuevas ordenes
 - `config_acc.py` Configuración de cuenta
 - `ops_transporte.py` Listado operaciones de transporte
-- 
 ### Configurar git 
 
 Clone el repositorio como se menciona en el inicio de la documentación.
