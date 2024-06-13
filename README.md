@@ -32,6 +32,17 @@ def db_usuarios():
     conn.commit()
     conn.close()
 ```
+### Entendiendo el funcionamiento
+Dentro de la carpeta `components` se encuentran los archivos correspondientes a cada interfaces, así también como la base de datos.
+- `login.py` Interfaz de inicio de sesión
+- `db_ordenes.py` Base de datos
+- `ID_log.py` Interfaz gerente general
+- `ID_log2.py` Interfaz gerente de transporte
+- `mapa_transporte.py` Mapa de los recorridos
+- `nueva_orden.py` Formulario nuevas ordenes
+- `config_acc.py` Configuración de cuenta
+- `ops_transporte.py` Listado operaciones de transporte
+- 
 ### Configurar git 
 
 Clone el repositorio como se menciona en el inicio de la documentación.
