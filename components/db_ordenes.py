@@ -1,4 +1,10 @@
 import sqlite3
+from helpers import run_test
+from usuarios_log import db_usuarios
+from data_sistema import get_system_info
+import platform
+import os
+import psutil
 
 conn = sqlite3.connect('ordenes.db')
 c = conn.cursor()
@@ -13,3 +19,8 @@ c.execute('''CREATE TABLE IF NOT EXISTS ordenes (
 
 conn.commit()
 conn.close()
+
+db_usuarios()
+print("\n+-------------------- Base de datos CREADA ------------------------+")
+get_system_info()
+run_test()

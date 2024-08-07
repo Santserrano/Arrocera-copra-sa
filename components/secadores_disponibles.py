@@ -13,6 +13,11 @@ sys.path.append(project_dir)
 def secadores_disponibles():
     ##################################################################################################
 
+    def gerente_config(root): # Secadores disponibles - Secado de arroz - Lista tabla
+        from config_acc_ggeneral import config_acc
+        root.destroy()
+        config_acc()
+
     def volver(root):
         from ID_log import ID_log
         root.destroy()
@@ -51,9 +56,9 @@ def secadores_disponibles():
     title_frame.columnconfigure(2, weight=1)
 
     CTkLabel(master=title_frame, text="", image=logo_img).grid(row=0, column=0, padx=(10, 0), pady=(3, 0), sticky="w")
-    CTkLabel(master=title_frame, text="SECADORES DISPONIBLES", font=("Poppins Bold", 25), text_color="#003b48").grid(row=0, column=1, pady=(12, 0), sticky="n")
-    CTkButton(master=title_frame, width=100, height=30, command=lambda: volver(app), text="<  Volver", font=("Poppins Bold", 15), text_color="#fff", fg_color="#003b48", hover_color="#006278").grid(row=0, column=2, padx=(0, 10), sticky="e")
-
+    CTkLabel(master=title_frame, text="SECADORES DISPONIBLES", font=("Poppins Bold", 25), text_color="#003b48").grid(row=0, column=1, padx=(80, 0), pady=(12, 0), sticky="n")
+    CTkButton(master=title_frame, width=100, height=30, command=lambda: gerente_config(app), text="<  Cuenta", font=("Poppins Bold", 15), text_color="#fff", fg_color="#003b48", hover_color="#006278").grid(row=0, column=2, padx=(0, 10), sticky="e")
+    CTkButton(master=title_frame, width=100, height=30, command=lambda: volver(app), text="<  Volver", font=("Poppins Bold", 15), text_color="#fff", fg_color="#003b48", hover_color="#006278").grid(row=0, column=3, padx=(0, 10), sticky="e")
     ###################################### ------------> SE DEFINE EL BLOQUE DE ORDENES Y LISTA DE CLIENTES <------------ ######################################
     table_data = [
         ["Modelo", "Capacidades m3", "Temperatura °C", "Energía kcal/h", "Consumo de combustible GLP"],

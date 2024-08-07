@@ -14,6 +14,11 @@ color de fondo y logo.
 # Ventana
 def ops_transporte_b():
 
+    def gerente_config(root): # Secadores disponibles - Secado de arroz - Lista tabla
+        from config_acc_transporte import config_acc
+        root.destroy()
+        config_acc()
+
     def volver(root):
         from ID_log_2 import ID_log_2
         root.destroy()
@@ -52,8 +57,9 @@ def ops_transporte_b():
     title_frame.columnconfigure(2, weight=1)
 
     CTkLabel(master=title_frame, text="", image=logo_img).grid(row=0, column=0, padx=(10, 0), pady=(3, 0), sticky="w")
-    CTkLabel(master=title_frame, text="OPERACIONES TRANSPORTE", font=("Poppins Bold", 25), text_color="#003b48").grid(row=0, column=1, pady=(12, 0), sticky="n")
-    CTkButton(master=title_frame, width=100, height=30, command=lambda: volver(app), text="<  Volver", font=("Poppins Bold", 15), text_color="#fff", fg_color="#003b48", hover_color="#006278").grid(row=0, column=2, padx=(0, 10), sticky="e")
+    CTkLabel(master=title_frame, text="OPERACIONES TRANSPORTE", font=("Poppins Bold", 25), text_color="#003b48").grid(row=0, column=1, padx=(90, 0), pady=(12, 0), sticky="n")
+    CTkButton(master=title_frame, width=100, height=30, command=lambda: gerente_config(app), text="* Cuenta", font=("Poppins Bold", 15), text_color="#fff", fg_color="#003b48", hover_color="#006278").grid(row=0, column=2, padx=(0, 10), sticky="e")
+    CTkButton(master=title_frame, width=100, height=30, command=lambda: volver(app), text="<  Volver", font=("Poppins Bold", 15), text_color="#fff", fg_color="#003b48", hover_color="#006278").grid(row=0, column=3, padx=(0, 10), sticky="e")
 
     table_data = [
         ["Conductor", "Fecha", "Ruta", "Tiempo", "Estado"],
