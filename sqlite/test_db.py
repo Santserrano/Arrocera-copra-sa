@@ -2,7 +2,6 @@ import tkinter as tk
 from tkinter import messagebox
 import sqlite3
 
-# Función para insertar datos en la base de datos
 def insertar_usuario(nombre, password):
     conn = sqlite3.connect('usuarios.db')
     c = conn.cursor()
@@ -14,7 +13,6 @@ def insertar_usuario(nombre, password):
     entrada_password.delete(0, tk.END)
     mostrar_usuarios()
 
-# Función para mostrar los datos de la base de datos
 def mostrar_usuarios():
     lista_usuarios.delete(0, tk.END)
     conn = sqlite3.connect('usuarios.db')
@@ -54,6 +52,4 @@ tk.Button(root, text="Mostrar Usuarios", command=mostrar_usuarios).grid(row=3, c
 
 lista_usuarios = tk.Listbox(root, width=40)
 lista_usuarios.grid(row=4, column=0, columnspan=2)
-
-# Ejecutar la aplicación
 root.mainloop()

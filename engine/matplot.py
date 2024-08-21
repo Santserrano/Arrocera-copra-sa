@@ -19,7 +19,6 @@ def plot_graph():
     plt.xlabel('Eje X')
     plt.ylabel('Eje Y')
     
-    # Integrar la figura en Tkinter
     canvas = FigureCanvasTkAgg(fig, master=window)
     canvas.draw()
     canvas.get_tk_widget().pack()

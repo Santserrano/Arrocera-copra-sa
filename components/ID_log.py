@@ -9,6 +9,7 @@ GERENTE PRODUCCIÓN
 SECADO DE ARROZ (DISPONIBLES) -> CARGA Y DESCARGA DE CAMIONES -> ALMACENAMIENTO ARROZ
 
 """
+
 ##################################################################################################
 
 def ID_log():
@@ -41,7 +42,6 @@ def ID_log():
         root.destroy()
         almacenamiento_arroz()
 
-    set_appearance_mode("light")
     background_image = Image.open("assets/wall-back.png")
     background_image = background_image.resize((856, 645))
     background_photo = ImageTk.PhotoImage(background_image)

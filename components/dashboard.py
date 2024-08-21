@@ -49,7 +49,6 @@ def dashboard():
         from test_facturacion import generar_factura
         generar_factura()
     #------------------------------------------------------------------------------------------------>
-
     app.iconbitmap('assets/logo.ico')
     app.title("Agrorice - Copra S.A")
 
@@ -69,7 +68,6 @@ def dashboard():
 
     package_img_data = Image.open("assets/package_icon.png")
     package_img = CTkImage(package_img_data)
-
     ###################################### SE DEFINEN LOS BOTONES DEL LADO IZQUIERDO Y SE CARGAN SUS RESPECTIVOS ICONOS ######################################
     
     CTkButton(master=sidebar_frame, image=package_img, text="Ordenar", command=lambda: nueva_orden(app), fg_color="transparent", font=("Poppins Bold", 14), text_color="#fff", hover_color="#006278", anchor="w").pack(anchor="center", ipady=5, pady=(16, 0))
@@ -91,11 +89,6 @@ def dashboard():
     person_img_data = Image.open("assets/person_icon.png")
     person_img = CTkImage(person_img_data)
     CTkButton(master=sidebar_frame, image=person_img, command=lambda: gerente_config(app), text="Cuenta", fg_color="transparent", font=("Poppins Bold", 14), hover_color="#006278", anchor="w").pack(anchor="center", ipady=8, pady=(120, 0))
-
-    #########################################################################################################
-
-
-
 
     ###################################### ------------>SE DEFINE EL BLOQUE IZQUIERDO <------------ ######################################
     main_view = CTkFrame(master=app, fg_color="#fff",  width=680, height=650, corner_radius=0)
