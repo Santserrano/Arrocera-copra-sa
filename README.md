@@ -8,7 +8,9 @@ git clone https://github.com/Santserrano/Arrocera-copra-sa.git
 ```
 ### Contruir el Sistema 
 Ejecute el archivo `db_ordenes.py` para construir la base de datos de Usuarios y Ordenes.
-Una vez ejecutado en archivo anterior, puedo correr `login.py` para comenzar a utilizar el sistema.
+Una vez ejecutado el archivo anterior, puedo correr `login.py` para comenzar a utilizar el sistema.
+
+![head](interfaces.png)
 
 Los roles y cuentas de acceso en la base de datos se encuentran definidas de la siguiente manera.
 ```bash
@@ -33,7 +35,7 @@ def db_usuarios():
     conn.close()
 ```
 ### Entendiendo el funcionamiento
-Dentro de la carpeta `components` se encuentran los archivos correspondientes a cada interfaces, así también como la base de datos.
+Dentro de la carpeta `components` se encuentran los archivos correspondientes a cada interfaz, así también como la base de datos.
 - `login.py` Interfaz de inicio de sesión
 - `db_ordenes.py` Base de datos
 - `ID_log.py` Interfaz gerente general
